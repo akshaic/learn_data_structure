@@ -28,6 +28,7 @@ void insert(int data)
          {
          head=newnode;
          tail=newnode;
+         newnode->next=newnode;
          }
      else
      {
@@ -84,23 +85,22 @@ void delete()
      tail=tail->prev;
      tail->next=head;
      head->prev=tail;
-     
-     }
+     free(temp);     }
 }
 
 }
 void display()
 {   
      if(head==NULL && tail==NULL)
-    printf("List empty");
-     temp=head;
-    while(temp->next!=head)
-      {
-           printf("%d\t",temp->data);
-           temp=temp->next;
-      }
-      printf("%d\t",tail->data);
-      printf("\n\n");
+    printf("List empty\n");
+    else {
+     temp = head;
+    do {
+        printf("%d\t", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+    printf("\n\n");
+    }
 }
 
 
